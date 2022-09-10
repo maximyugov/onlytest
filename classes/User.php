@@ -22,7 +22,7 @@ class User
         return $this;
     }
 
-    public function setEmail(string $email): string
+    public function setEmail(string $email): User
     {
         $this->userData['email'];
         return $this;
