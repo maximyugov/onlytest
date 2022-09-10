@@ -12,9 +12,11 @@ class Router
     
     public function matchView(): string
     {
+        
         $path = $_SERVER['REQUEST_URI'];
+        
         if (array_key_exists($path, $this->routes)) {
-            $view = $path;
+            $view = $this->routes[$path];
         } else {
             $this->redirect(404);
         }
