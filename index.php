@@ -6,7 +6,6 @@ function run()
 {
     $router = new Router();
     $view = $router->matchView();
-    #include('views/' . $view . '.tpl.php');
 }
 
 run();

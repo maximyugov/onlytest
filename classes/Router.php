@@ -17,7 +17,6 @@ class Router
         $path = $_SERVER['REQUEST_URI'];
         
         if (array_key_exists($path, $this->routes)) {
-            #$view = $this->routes[$path];
             $user = new UserController();
             call_user_func([$user, $this->routes[$path]]);
         } else {

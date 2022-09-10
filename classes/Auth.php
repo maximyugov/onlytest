@@ -12,6 +12,7 @@ class Auth
     public static function login(string $name, string $password): bool
     {
         //find user and return true or false
+        $db = new Db();
         return false;
     }
 

@@ -6,7 +6,14 @@ class Db
 {
     public function __construct()
     {
-
+        try {
+            $db = new PDO(DB_DRIVER . ":" . __DIR__ . "../database/db.sqlite");
+            var_dump($db);
+        } catch (Exception $e) {
+            echo "Unable to connect";
+            echo $e->getMessage();
+            exit;
+        }
     }
 
     public function storeUser(User $user)
