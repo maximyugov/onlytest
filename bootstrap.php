@@ -5,3 +5,5 @@ require_once('classes/Db.php');
 require_once('classes/Router.php');
 require_once('classes/Session.php');
 require_once('classes/User.php');
+require_once('classes/UserController.php');
+require_once('classes/View.php');

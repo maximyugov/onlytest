@@ -6,7 +6,7 @@ class User
 {
     protected array $userData = [];
 
-    public function getName(string $name): string
+    public function getName(): string
     {
         return $this->userData['name'];
     }
@@ -16,7 +16,7 @@ class User
         return $this->userData['email'];
     }
 
-    public function setName(string $name): string
+    public function setName(string $name): User
     {
         $this->userData['name'] = $name;
         return $this;

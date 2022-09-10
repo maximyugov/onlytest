@@ -8,7 +8,7 @@
 </head>
 <body>
     <div>
-        <h2>Добро пожаловать!</h2>
+        <h2>Добро пожаловать, <?php echo $user->getName(); ?>!</h2>
     </div>
 </body>
 </html>
