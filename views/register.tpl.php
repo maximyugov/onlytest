@@ -8,24 +8,24 @@
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
-    <div>
+    <div class="container">
         <h2>Регистрация</h2>
-        <div>
+        <div class="input">
             <input type="text" name="login" placeholder="Логин">
         </div>
-        <div>
+        <div class="input">
             <input type="text" name="email" placeholder="E-mail">
         </div>
-        <div>
+        <div class="input">
             <input type="password" name="password" placeholder="Пароль">
         </div>
-        <div>
+        <div class="input">
             <input type="password" name="passwordcheck" placeholder="Повторите пароль">
         </div>
-        <div>
+        <div class="input">
             <button>Войти</button>
         </div>
-        <div>
+        <div class="input">
             <a href="/login">Уже зарегистрированы?</a>
         </div>
     </div>

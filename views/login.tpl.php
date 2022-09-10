@@ -8,17 +8,19 @@
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
-    <div>
+    <div class="container">
         <h2>Вход</h2>
-        <div>
-            <input type="login" name="login" placeholder="Логин">
+        <div class="input">
+            <input type="text" name="login" placeholder="Логин">
+        </div>
+        <div class="input">
             <input type="password" name="password" placeholder="Пароль">
         </div>
-        <div>
+        <div class="input">
             <button>Войти</button>
         </div>
-        <div>
-            <a href="/register.php">Регистрация</a>
+        <div class="input">
+            <a href="/register">Регистрация</a>
         </div>
     </div>
 </body>

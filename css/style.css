@@ -1,3 +1,30 @@
 body {
     font-family: Arial;
 }
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.input {
+    margin-bottom: 20px;
+}
+
+.input input {
+    width: 50%;
+    height: 40px;
+}
+
+button {
+    width: 300px;
+    height: 40px;
+    background-color: lightskyblue;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+a {
+    color: lightskyblue;
+}
