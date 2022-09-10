@@ -24,7 +24,7 @@
                 <input type="password" name="passwordcheck" placeholder="Повторите пароль">
             </div>
             <div class="input">
-                <button>Войти</button>
+                <button>Зарегистрироваться</button>
             </div>
         </form>
         <div class="input">
