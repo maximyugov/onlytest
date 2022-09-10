@@ -6,7 +6,7 @@ class View
     {
         $output = NULL;
 
-        $filePath = __DIR__ . '/../views/' . $filePath . '.tpl.php';
+        $filePath = __DIR__ . '/../views/' . $filePath . '.template.php';
         
         if(file_exists($filePath)){
             // Extract the variables to a local namespace
