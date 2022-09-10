@@ -9,18 +9,14 @@ class Auth
 
     }
 
-    public function login(string $name, string $password)
+    public static function login(string $name, string $password): bool
     {
-
+        //find user and return true or false
+        return false;
     }
 
     public function isUser(User $user): bool
     {
         return true;
-    }
-
-    private function passwordHash(string $password): string
-    {
-        return password_hash($password, PASSWORD_DEFAULT);
     }
 }

@@ -7,6 +7,7 @@ class Router
     private $routes = [
         '/' => 'index',
         '/login' => 'login',
+        '/verify' => 'verify',
         '/register' => 'register',
     ];
     

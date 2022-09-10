@@ -17,6 +17,18 @@ class UserController
         $view = new View();
         $view->render('login');
     }
+
+    public function verify()
+    {
+        $login = $_POST['login'];
+        $password = $_POST['password'];
+        if (Auth::login($login, $password)) {
+            redirect('/');
+        } else {
+            redirect('/login');
+        }
+        
+    }
     
     public function register()
     {

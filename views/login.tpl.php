@@ -10,15 +10,17 @@
 <body>
     <div class="container">
         <h2>Вход</h2>
-        <div class="input">
-            <input type="text" name="login" placeholder="Логин">
-        </div>
-        <div class="input">
-            <input type="password" name="password" placeholder="Пароль">
-        </div>
-        <div class="input">
-            <button>Войти</button>
-        </div>
+        <form action="/verify" method="POST">
+            <div class="input">
+                <input type="text" name="login" placeholder="Логин">
+            </div>
+            <div class="input">
+                <input type="password" name="password" placeholder="Пароль">
+            </div>
+            <div class="input">
+                <button>Войти</button>
+            </div>
+        </form>
         <div class="input">
             <a href="/register">Регистрация</a>
         </div>
