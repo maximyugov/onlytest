@@ -7,13 +7,12 @@ class Db
     public function __construct()
     {
         try {
-            $db = new PDO(DB_DRIVER . ":" . __DIR__ . "../database/db.sqlite");
-            var_dump($db);
-        } catch (Exception $e) {
-            echo "Unable to connect";
-            echo $e->getMessage();
-            exit;
+            $db = new PDO(DB_DRIVER . ':host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
+        } catch (PDOException $e) {
+            print "Database connection error: " . $e->getMessage();
+            die();
         }
+        return $db;
     }
 
     public function storeUser(User $user)
