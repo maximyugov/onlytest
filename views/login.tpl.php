@@ -12,7 +12,7 @@
         <h2>Вход</h2>
         <form action="/verify" method="POST">
             <div class="input">
-                <input type="text" name="login" placeholder="Логин">
+                <input type="text" name="email" placeholder="E-mail">
             </div>
             <div class="input">
                 <input type="password" name="password" placeholder="Пароль">

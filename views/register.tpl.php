@@ -12,7 +12,7 @@
         <h2>Регистрация</h2>
         <form action="/register" method="POST">
             <div class="input">
-                <input type="text" name="login" placeholder="Логин">
+                <input type="text" name="name" placeholder="Имя">
             </div>
             <div class="input">
                 <input type="text" name="email" placeholder="E-mail">
