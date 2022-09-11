@@ -32,7 +32,7 @@ class Db
     public function verifyUser(User $user)
     {
         $values = [
-            'email'            => $user->getEmail(),
+            'email' => $user->getEmail(),
         ];
         
         $sql = 'SELECT * FROM users WHERE email = :email';
