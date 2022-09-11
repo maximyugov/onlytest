@@ -8,9 +8,14 @@
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
+    <?php if (isset($msg)) { ?>
+    <div class="container">
+        <p><?= $msg ?></p>
+    </div>
+    <?php } ?>
     <div class="container">
         <h2>Регистрация</h2>
-        <form action="/register" method="POST">
+        <form action="/create" method="POST">
             <div class="input">
                 <input type="text" name="name" placeholder="Имя">
             </div>

@@ -8,6 +8,11 @@
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
+    <?php if (isset($msg)) { ?>
+    <div class="container">
+        <p><?= $msg ?></p>
+    </div>
+    <?php } ?>
     <div class="container">
         <h2>Вход</h2>
         <form action="/verify" method="POST">

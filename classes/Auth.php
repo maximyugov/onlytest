@@ -9,11 +9,12 @@ class Auth
 
     }
 
-    public static function login(string $name, string $password): bool
+    public static function login(User $user)
     {
         //find user and return true or false
         $db = new Db();
-        return false;
+
+        return $db->verifyUser($user);
     }
 
     public function isUser(User $user): bool
