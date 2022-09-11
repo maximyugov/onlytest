@@ -8,7 +8,7 @@ class UserController
     {
         if ($_SESSION['auth']) {
             $view = new View();
-        $view->render('index');
+            $view->render('index');
         } else {
             redirect('/login');
         }        
