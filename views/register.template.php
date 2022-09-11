@@ -1,3 +1,7 @@
+<?php
+$name = isset($_POST['name']) ? $_POST['name'] : '';
+$email = isset($_POST['email']) ? $_POST['email'] : '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +21,10 @@
         <h2>Регистрация</h2>
         <form action="/create" method="POST">
             <div class="input">
-                <input type="text" name="name" placeholder="Имя">
+                <input type="text" name="name" placeholder="Имя" value="<?=$name?>">
             </div>
             <div class="input">
-                <input type="text" name="email" placeholder="E-mail">
+                <input type="text" name="email" placeholder="E-mail" value="<?=$email?>">
             </div>
             <div class="input">
                 <input type="password" name="password" placeholder="Пароль">
