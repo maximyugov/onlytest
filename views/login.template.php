@@ -37,5 +37,6 @@ $email = isset($_SESSION['old_email']) ? $_SESSION['old_email'] : '';
 </html>
 
 <?php
+unset($_SESSION['old_name']);
 unset($_SESSION['old_email']);
 ?>
