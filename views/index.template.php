@@ -10,6 +10,7 @@
 <body>
     <div>
         <h2>Добро пожаловать, <?php echo $_SESSION['name']; ?>!</h2>
+        <p><a href="/logout">Выйти</a></p>
     </div>
 </body>
 </html>

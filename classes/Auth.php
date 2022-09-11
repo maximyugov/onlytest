@@ -16,6 +16,7 @@ class Auth
 
         $authUser = $db->verifyUser($user);
         $_SESSION['name'] = $authUser->name;
+        $_SESSION['auth'] = true;
 
         if (empty($authUser)) {
             return false;
