@@ -16,22 +16,6 @@ class Db
         }
     }
 
-    public function storeUser(User $user)
-    {
-
-    }
-
-    public function getUser(string $name, string $password)
-    {
-        $password = self::passwordHash($password);
-        //connect to db and find user by name and email and create $user = new User
-        if (!$user) {
-            return false;
-        }
-
-        return $user;
-    }
-
     public function registerUser(User $user)
     {
         $values = [
@@ -62,17 +46,8 @@ class Db
             }
         }
         
-
         return [];
     }
-
-    /*
-    function execute(PDO $db, string $sql, array $values): bool
-    {
-        $preparedStatement = $db->prepare($sql);
-        return $preparedStatement->execute($values);
-    }
-    */
 
     private static function passwordHash(string $password): string
     {
