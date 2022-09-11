@@ -1,3 +1,6 @@
+<?php
+$email = isset($_SESSION['old_email']) ? $_SESSION['old_email'] : '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +20,7 @@
         <h2>Вход</h2>
         <form action="/verify" method="POST">
             <div class="input">
-                <input type="text" name="email" placeholder="E-mail">
+                <input type="text" name="email" placeholder="E-mail" value="<?=$email?>">
             </div>
             <div class="input">
                 <input type="password" name="password" placeholder="Пароль">
@@ -32,3 +35,7 @@
     </div>
 </body>
 </html>
+
+<?php
+unset($_SESSION['old_email']);
+?>

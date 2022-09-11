@@ -39,6 +39,8 @@ class UserController
         if (Auth::login($user)) {
             redirect('/');
         } else {
+            $_SESSION['old_email'] = $_POST['email'];
+            $_SESSION['flash'] = 'Введите правильные логин и пароль.';
             redirect('/login');
         }
         
@@ -59,15 +61,17 @@ class UserController
         $db = new Db();
         $res = $db->findUserByEmail($_POST['email']);
 
-        if ($res) {
-            $_SESSION['old_name'] = $_POST['name'];
-            $_SESSION['old_email'] = $_POST['email'];
+        $_SESSION['old_name'] = $_POST['name'];
+        $_SESSION['old_email'] = $_POST['email'];
+
+        if ($res) {    
             $_SESSION['flash'] = 'Пользователь с таким e-mail уже существует.';
             redirect('/register');
             return;
         }
 
         if ($_POST['name'] === '' || $_POST['email'] === '' || $_POST['password'] === '') {
+            $_SESSION['flash'] = 'Все поля обязательны для заполнения.';
             redirect('/register');
             return;
         }
@@ -79,17 +83,11 @@ class UserController
             $db = new Db();
             $db->registerUser($user);
 
-            $view = new View();
-            $view->render('login', [
-                'msg' => 'Вы зарегистрировались. Теперь можете войти.'
-            ]);
+            $_SESSION['flash'] = 'Вы зарегистрировались. Теперь можете войти.';
+            redirect('/login');
         } else {
-            $view = new View();
-            $view->render('register', [
-                'name' => $_POST['name'],
-                'email' => $_POST['email'],
-                'msg' => 'Пароли не совпадают.',
-            ]);
+            $_SESSION['flash'] = 'Пароли не совпадают.';
+            redirect('/register');
         }
     }
 }
