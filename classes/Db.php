@@ -45,8 +45,28 @@ class Db
                 return $row[0];
             }
         }
-        
+
         return [];
+    }
+
+    public function findUserByEmail(string $email)
+    {
+        $values = [
+            'email' => $email,
+        ];
+        
+        $sql = 'SELECT * FROM users WHERE email = :email';
+        $preparedStatement = $this->db->prepare($sql);
+        $res = $preparedStatement->execute($values);
+        
+        if (false !== $res) {
+            $row = $preparedStatement->fetchAll(\PDO::FETCH_CLASS, User::class);
+            if ($row) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private static function passwordHash(string $password): string

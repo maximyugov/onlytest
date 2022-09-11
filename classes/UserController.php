@@ -56,6 +56,24 @@ class UserController
 
     public function create()
     {
+        $db = new Db();
+        $res = $db->findUserByEmail($_POST['email']);
+
+        if ($res) {
+            $view = new View();
+            $view->render('register', [
+                'name' => $_POST['name'],
+                'email' => $_POST['email'],
+                'msg' => 'Пользователь с таким e-mail уже существует.',
+            ]);
+            return;
+        }
+
+        if ($_POST['name'] === '' || $_POST['email'] === '' || $_POST['password'] === '') {
+            redirect('/register');
+            return;
+        }
+
         if ($_POST['password'] === $_POST['passwordcheck']) {
             $user = new User();
             $user->setName($_POST['name'])->setEmail($_POST['email'])->setPassword($_POST['password']);
@@ -72,6 +90,7 @@ class UserController
             $view->render('register', [
                 'name' => $_POST['name'],
                 'email' => $_POST['email'],
+                'msg' => 'Пароли не совпадают.',
             ]);
         }
     }
