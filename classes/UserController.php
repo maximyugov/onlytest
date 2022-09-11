@@ -24,11 +24,8 @@ class UserController
         $user->setEmail($_POST['email']);
         $user->setPassword($_POST['password']);
         
-        if ($authUser = Auth::login($user)) {
-            $view = new View();
-            $view->render('index', [
-                'user' => $authUser,
-            ]);
+        if (Auth::login($user)) {
+            redirect('/');
         } else {
             redirect('/login');
         }

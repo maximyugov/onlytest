@@ -14,7 +14,14 @@ class Auth
         //find user and return true or false
         $db = new Db();
 
-        return $db->verifyUser($user);
+        $authUser = $db->verifyUser($user);
+        $_SESSION['name'] = $authUser->name;
+
+        if (empty($authUser)) {
+            return false;
+        }
+
+        return true;
     }
 
     public function isUser(User $user): bool

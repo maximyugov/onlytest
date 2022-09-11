@@ -9,7 +9,7 @@
 </head>
 <body>
     <div>
-        <h2>Добро пожаловать, <?php echo $user->name; ?>!</h2>
+        <h2>Добро пожаловать, <?php echo $_SESSION['name']; ?>!</h2>
     </div>
 </body>
 </html>
