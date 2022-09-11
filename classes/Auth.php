@@ -15,12 +15,13 @@ class Auth
         $db = new Db();
 
         $authUser = $db->verifyUser($user);
-        $_SESSION['name'] = $authUser->name;
-        $_SESSION['auth'] = true;
 
         if (empty($authUser)) {
             return false;
         }
+        
+        $_SESSION['name'] = $authUser->name;
+        $_SESSION['auth'] = true;
 
         return true;
     }
