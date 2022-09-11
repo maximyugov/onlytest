@@ -24,6 +24,12 @@ class UserController
         }
     }
 
+    public function logout()
+    {
+        unset($_SESSION['auth']);
+        redirect('/login');
+    }
+
     public function verify()
     {
         $user = new User();

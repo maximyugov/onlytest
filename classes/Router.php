@@ -10,6 +10,7 @@ class Router
         '/verify' => 'verify',
         '/register' => 'register',
         '/create' => 'create',
+        '/logout' => 'logout',
     ];
     
     public function matchView(): void
