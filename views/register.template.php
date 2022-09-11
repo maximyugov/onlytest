@@ -1,6 +1,6 @@
 <?php
-$name = isset($_POST['name']) ? $_POST['name'] : '';
-$email = isset($_POST['email']) ? $_POST['email'] : '';
+$name = isset($_SESSION['old_name']) ? $_SESSION['old_name'] : '';
+$email = isset($_SESSION['old_email']) ? $_SESSION['old_email'] : '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +12,11 @@ $email = isset($_POST['email']) ? $_POST['email'] : '';
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
-    <?php if (isset($msg)) { ?>
+    <?php if (isset($_SESSION['flash'])) { ?>
     <div class="container">
-        <p><?= $msg ?></p>
+        <p><?= $_SESSION['flash'] ?></p>
     </div>
-    <?php } ?>
+    <?php } unset($_SESSION['flash']); ?>
     <div class="container">
         <h2>Регистрация</h2>
         <form action="/create" method="POST">
@@ -42,3 +42,8 @@ $email = isset($_POST['email']) ? $_POST['email'] : '';
     </div>
 </body>
 </html>
+
+<?php
+unset($_SESSION['old_name']);
+unset($_SESSION['old_email']);
+?>

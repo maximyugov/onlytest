@@ -60,12 +60,10 @@ class UserController
         $res = $db->findUserByEmail($_POST['email']);
 
         if ($res) {
-            $view = new View();
-            $view->render('register', [
-                'name' => $_POST['name'],
-                'email' => $_POST['email'],
-                'msg' => 'Пользователь с таким e-mail уже существует.',
-            ]);
+            $_SESSION['old_name'] = $_POST['name'];
+            $_SESSION['old_email'] = $_POST['email'];
+            $_SESSION['flash'] = 'Пользователь с таким e-mail уже существует.';
+            redirect('/register');
             return;
         }
 

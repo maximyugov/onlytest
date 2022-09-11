@@ -8,11 +8,11 @@
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body>
-    <?php if (isset($msg)) { ?>
+    <?php if (isset($_SESSION['flash'])) { ?>
     <div class="container">
-        <p><?= $msg ?></p>
+        <p><?= $_SESSION['flash'] ?></p>
     </div>
-    <?php } ?>
+    <?php } unset($_SESSION['flash']); ?>
     <div class="container">
         <h2>Вход</h2>
         <form action="/verify" method="POST">
