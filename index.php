@@ -1,10 +1,6 @@
 <?php
 
-require('vendor/autoload.php');
-require('config/config.php');
-require('src/Helpers/helper.php');
-
-#use App\Router;
+require 'bootstrap.php';
 
 session_start();
 if (!isset($_SESSION['auth'])) {
