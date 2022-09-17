@@ -4,7 +4,7 @@ namespace App;
 
 class UserController
 {
-    public function index()
+    public function index(): void
     {
         if ($_SESSION['auth']) {
             $view = new View();
@@ -14,7 +14,7 @@ class UserController
         }        
     }
 
-    public function login()
+    public function login(): void
     {
         if ($_SESSION['auth']) {
             redirect('/');
@@ -24,13 +24,13 @@ class UserController
         }
     }
 
-    public function logout()
+    public function logout(): void
     {
         unset($_SESSION['auth']);
         redirect('/login');
     }
 
-    public function verify()
+    public function verify(): void
     {
         $user = new User();
         $user->setEmail($_POST['email']);
@@ -46,7 +46,7 @@ class UserController
         
     }
     
-    public function register()
+    public function register(): void
     {
         if ($_SESSION['auth']) {
             redirect('/');
@@ -56,7 +56,7 @@ class UserController
         }
     }
 
-    public function create()
+    public function create(): void
     {
         $db = new Db();
         $res = $db->findUserByEmail($_POST['email']);

@@ -7,7 +7,7 @@ if (!isset($_SESSION['auth'])) {
     $_SESSION['auth'] = false;
 }
 
-function run()
+function run(): void
 {
     $router = new App\Router();
     $view = $router->matchView();

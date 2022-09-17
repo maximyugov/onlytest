@@ -4,7 +4,7 @@ namespace App;
 
 class Db
 {
-    protected $db;
+    protected \PDO $db;
 
     public function __construct()
     {
@@ -16,7 +16,7 @@ class Db
         }
     }
 
-    public function registerUser(User $user)
+    public function registerUser(User $user): bool
     {
         $values = [
             'name'             => $user->getName(),
@@ -29,7 +29,7 @@ class Db
         return $preparedStatement->execute($values);
     }
 
-    public function verifyUser(User $user)
+    public function verifyUser(User $user) //TODO
     {
         $values = [
             'email' => $user->getEmail(),

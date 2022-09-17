@@ -4,7 +4,7 @@ namespace App;
 
 class Auth
 {
-    public static function login(User $user)
+    public static function login(User $user): bool
     {
         $db = new Db();
 

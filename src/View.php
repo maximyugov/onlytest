@@ -4,7 +4,7 @@ namespace App;
 
 class View
 {
-    public function render(string $filePath, array $variables = [], bool $print = true)
+    public function render(string $filePath, array $variables = [], bool $print = true): string
     {
         $output = NULL;
 

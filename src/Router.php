@@ -4,7 +4,7 @@ namespace App;
 
 class Router
 {
-    private $routes = [
+    private array $routes = [
         '/' => 'index',
         '/login' => 'login',
         '/verify' => 'verify',
