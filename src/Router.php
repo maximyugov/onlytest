@@ -22,12 +22,12 @@ class Router
             $user = new UserController();
             call_user_func([$user, $this->routes[$path]]);
         } else {
-            $this->redirect(404);
+            $this->redirect404();
         }
         
     }
 
-    public function redirect(int $code = 404): void
+    public function redirect404(): void
     {
         header("HTTP/1.1 404 Not Found");
         die();
