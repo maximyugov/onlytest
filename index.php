@@ -1,6 +1,10 @@
 <?php
 
-require_once('bootstrap.php');
+require('vendor/autoload.php');
+require('config/config.php');
+require('src/Helpers/helper.php');
+
+#use App\Router;
 
 session_start();
 if (!isset($_SESSION['auth'])) {
@@ -9,7 +13,7 @@ if (!isset($_SESSION['auth'])) {
 
 function run()
 {
-    $router = new Router();
+    $router = new App\Router();
     $view = $router->matchView();
 }
 

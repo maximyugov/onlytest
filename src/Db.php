@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . "/../bootstrap.php");
+namespace App;
 
 class Db
 {
@@ -9,8 +9,8 @@ class Db
     public function __construct()
     {
         try {
-            $this->db = new PDO(DB_DRIVER . ':host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
-        } catch (PDOException $e) {
+            $this->db = new \PDO(\DB_DRIVER . ':host=' . \DB_HOST . ';dbname=' . \DB_NAME, \DB_USER, \DB_PASSWORD);
+        } catch (\PDOException $e) {
             print "Database connection error: " . $e->getMessage();
             die();
         }
