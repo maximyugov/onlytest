@@ -14,7 +14,7 @@ class Auth
             return false;
         }
 
-        $_SESSION['name'] = $authUser->name;
+        $_SESSION['name'] = $authUser->getName();
         $_SESSION['auth'] = true;
 
         return true;

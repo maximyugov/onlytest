@@ -4,38 +4,40 @@ namespace App;
 
 class User
 {
-    protected array $userData = [];
+    private string $name;
+    private string $email;
+    private string $password;
 
     public function getName(): string
     {
-        return $this->userData['name'];
+        return $this->name;
     }
 
     public function getEmail(): string
     {
-        return $this->userData['email'];
+        return $this->email;
     }
     
     public function getPassword(): string
     {
-        return $this->userData['password'];
+        return $this->password;
     }
     
     public function setName(string $name): User
     {
-        $this->userData['name'] = $name;
+        $this->name = $name;
         return $this;
     }
 
     public function setEmail(string $email): User
     {
-        $this->userData['email'] = $email;
+        $this->email = $email;
         return $this;
     }
 
     public function setPassword(string $password): User
     {
-        $this->userData['password'] = $password;
+        $this->password = $password;
         return $this;
     }
 }
