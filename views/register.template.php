@@ -1,6 +1,6 @@
 <?php
-$name = isset($_SESSION['old_name']) ? $_SESSION['old_name'] : '';
-$email = isset($_SESSION['old_email']) ? $_SESSION['old_email'] : '';
+$name = $_SESSION['old_name'] ?? '';
+$email = $_SESSION['old_email'] ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -16,6 +16,12 @@ class Db
         }
     }
 
+    /**
+     * Регистрация пользователя
+     *
+     * @param User $user
+     * @return bool
+     */
     public function registerUser(User $user): bool
     {
         $values = [
@@ -29,6 +35,12 @@ class Db
         return $preparedStatement->execute($values);
     }
 
+    /**
+     * Проверяет существует ли пользователь с таким e-mail
+     *
+     * @param User $user
+     * @return array|mixed
+     */
     public function verifyUser(User $user) //TODO
     {
         $values = [
@@ -49,7 +61,13 @@ class Db
         return [];
     }
 
-    public function findUserByEmail(string $email)
+    /**
+     * Поиск пользователя по e-mail
+     *
+     * @param string $email
+     * @return bool
+     */
+    public function findUserByEmail(string $email): bool
     {
         $values = [
             'email' => $email,
@@ -69,6 +87,12 @@ class Db
         return false;
     }
 
+    /**
+     * Хеширование пароля
+     *
+     * @param string $password
+     * @return string
+     */
     private static function passwordHash(string $password): string
     {
         return password_hash($password, PASSWORD_DEFAULT);

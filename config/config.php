@@ -1,7 +1,7 @@
 <?php
 
-define('DB_DRIVER', 'mysql');
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'onlytest');
-define('DB_USER', 'root');
-define('DB_PASSWORD', 'root');
+const DB_DRIVER = 'mysql';
+const DB_HOST = 'localhost';
+const DB_NAME = 'onlytest';
+const DB_USER = 'root';
+const DB_PASSWORD = 'root';

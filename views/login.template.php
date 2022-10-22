@@ -1,5 +1,5 @@
 <?php
-$email = isset($_SESSION['old_email']) ? $_SESSION['old_email'] : '';
+$email = $_SESSION['old_email'] ?? '';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +33,7 @@ $email = isset($_SESSION['old_email']) ? $_SESSION['old_email'] : '';
             <a href="/register">Регистрация</a>
         </div>
     </div>
+
 </body>
 </html>
 
