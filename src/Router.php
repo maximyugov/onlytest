@@ -2,6 +2,7 @@
 
 namespace Onlytest;
 
+use Onlytest\Controllers\ControllerInterface;
 use Onlytest\Controllers\UserController;
 
 class Router
@@ -13,20 +14,31 @@ class Router
         '/register' => 'register',
         '/create' => 'create',
         '/logout' => 'logout',
+        '/test' => 'test',
     ];
-    
-    public function matchView(): void
+    private ControllerInterface $controller;
+
+    public function __construct()
     {
-        
-        $path = $_SERVER['REQUEST_URI'];
-        
+        // $this->controller = $controller;
+    }
+    
+    public function matchView(string $path): void
+    {        
+        $this->callControllerUserIndex();
+
         if (array_key_exists($path, $this->routes)) {
             $user = new UserController();
             call_user_func([$user, $this->routes[$path]]);
         } else {
             $this->redirect404();
-        }
-        
+        }        
+    }
+
+    public function callControllerUserIndex()
+    {
+        // call_user_func([$this->controller, 'index']);
+        return true;
     }
 
     public function redirect404(): void

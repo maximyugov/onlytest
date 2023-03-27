@@ -2,7 +2,7 @@
 
 namespace Onlytest\Controllers;
 
-class UserController
+class UserController extends Controller
 {
     public function index(): void
     {
@@ -89,5 +89,10 @@ class UserController
             $_SESSION['flash'] = 'Пароли не совпадают.';
             redirect('/register');
         }
+    }
+
+    public function test()
+    {
+        return 'test';
     }
 }
