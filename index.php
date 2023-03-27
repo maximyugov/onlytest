@@ -10,7 +10,7 @@ if (!isset($_SESSION['auth'])) {
 function run(): void
 {
     $router = new Onlytest\Router();
-    $view = $router->matchView();
+    $view = $router->matchView($_SERVER['REQUEST_URI']);
 }
 
 run();
