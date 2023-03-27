@@ -2,6 +2,8 @@
 
 namespace Onlytest;
 
+use Onlytest\Controllers\UserController;
+
 class Router
 {
     private array $routes = [
