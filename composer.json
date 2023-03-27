@@ -1,0 +1,20 @@
+{
+    "name": "onlytest/onlytest",
+    "description": "Test task for Only",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Onlytest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Maxim Yugov",
+            "email": "maxim.s.yugov@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-pdo": "*"
+    }
+}

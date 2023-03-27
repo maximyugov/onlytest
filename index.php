@@ -1,15 +1,15 @@
 <?php
 
-require_once('bootstrap.php');
+require 'bootstrap.php';
 
 session_start();
 if (!isset($_SESSION['auth'])) {
     $_SESSION['auth'] = false;
 }
 
-function run()
+function run(): void
 {
-    $router = new Router();
+    $router = new App\Router();
     $view = $router->matchView();
 }
 

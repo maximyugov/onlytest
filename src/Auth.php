@@ -1,10 +1,10 @@
 <?php
 
-require_once(__DIR__ . "/../bootstrap.php");
+namespace Onlytest;
 
 class Auth
 {
-    public static function login(User $user)
+    public static function login(User $user): bool
     {
         $db = new Db();
 
@@ -14,7 +14,7 @@ class Auth
             return false;
         }
 
-        $_SESSION['name'] = $authUser->name;
+        $_SESSION['name'] = $authUser->getName();
         $_SESSION['auth'] = true;
 
         return true;

@@ -1,22 +1,28 @@
 <?php
 
-require_once(__DIR__ . "/../bootstrap.php");
+namespace Onlytest;
 
 class Db
 {
-    protected $db;
+    protected \PDO $db;
 
     public function __construct()
     {
         try {
-            $this->db = new PDO(DB_DRIVER . ':host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD);
-        } catch (PDOException $e) {
+            $this->db = new \PDO(\DB_DRIVER . ':host=' . \DB_HOST . ';dbname=' . \DB_NAME, \DB_USER, \DB_PASSWORD);
+        } catch (\PDOException $e) {
             print "Database connection error: " . $e->getMessage();
             die();
         }
     }
 
-    public function registerUser(User $user)
+    /**
+     * Регистрация пользователя
+     *
+     * @param User $user
+     * @return bool
+     */
+    public function registerUser(User $user): bool
     {
         $values = [
             'name'             => $user->getName(),
@@ -29,7 +35,13 @@ class Db
         return $preparedStatement->execute($values);
     }
 
-    public function verifyUser(User $user)
+    /**
+     * Проверяет существует ли пользователь с таким e-mail
+     *
+     * @param User $user
+     * @return array|mixed
+     */
+    public function verifyUser(User $user) //TODO
     {
         $values = [
             'email' => $user->getEmail(),
@@ -49,7 +61,13 @@ class Db
         return [];
     }
 
-    public function findUserByEmail(string $email)
+    /**
+     * Поиск пользователя по e-mail
+     *
+     * @param string $email
+     * @return bool
+     */
+    public function findUserByEmail(string $email): bool
     {
         $values = [
             'email' => $email,
@@ -69,6 +87,12 @@ class Db
         return false;
     }
 
+    /**
+     * Хеширование пароля
+     *
+     * @param string $password
+     * @return string
+     */
     private static function passwordHash(string $password): string
     {
         return password_hash($password, PASSWORD_DEFAULT);
