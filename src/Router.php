@@ -2,7 +2,6 @@
 
 namespace Onlytest;
 
-use Onlytest\Controllers\ControllerInterface;
 use Onlytest\Controllers\UserController;
 
 class Router
