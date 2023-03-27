@@ -9,8 +9,8 @@ if (!isset($_SESSION['auth'])) {
 
 function run(): void
 {
-    $router = new App\Router();
-    $view = $router->matchView();
+    $router = new Onlytest\Router();
+    $view = $router->matchView($_SERVER['REQUEST_URI']);
 }
 
 run();
