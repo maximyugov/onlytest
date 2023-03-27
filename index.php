@@ -9,7 +9,7 @@ if (!isset($_SESSION['auth'])) {
 
 function run(): void
 {
-    $router = new App\Router();
+    $router = new Onlytest\Router();
     $view = $router->matchView();
 }
 
