@@ -16,7 +16,6 @@ class Router
         '/logout' => 'logout',
         '/test' => 'test',
     ];
-    private ControllerInterface $controller;
 
     public function __construct()
     {
