@@ -16,11 +16,6 @@ class Router
         '/test' => 'test',
     ];
 
-    public function __construct()
-    {
-        // $this->controller = $controller;
-    }
-    
     public function matchView(string $path): void
     {
         if (array_key_exists($path, $this->routes)) {
