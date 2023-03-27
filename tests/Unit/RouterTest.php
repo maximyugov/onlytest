@@ -55,4 +55,9 @@ class RouterTest extends TestCase
 
         $this->assertEquals('test', Router::match('/test'));
     }
+
+    public function test_not_found()
+    {
+        $this->assertEquals('not found', Router::match('/some-route-that-does-not-exist'));
+    }
 }

@@ -32,6 +32,8 @@ class Router
                 }
             }
         }
+
+        return Router::notFound();
     }
 
     public static function get(string $route, array $params)
@@ -42,6 +44,11 @@ class Router
     public static function post(string $route, array $params)
     {
         self::registerRoute('POST', $route, $params);
+    }
+
+    public static function notFound()
+    {
+        return 'not found';
     }
 
     private static function registerRoute(string $method, string $route, array $params)
