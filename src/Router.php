@@ -6,15 +6,7 @@ use Onlytest\Controllers\UserController;
 
 class Router
 {
-    private array $routes = [
-        '/' => 'index',
-        '/login' => 'login',
-        '/verify' => 'verify',
-        '/register' => 'register',
-        '/create' => 'create',
-        '/logout' => 'logout',
-        '/test' => 'test',
-    ];
+    public static array $routes = [];
 
     public function matchView(string $path): void
     {
@@ -24,6 +16,42 @@ class Router
         } else {
             $this->redirect404();
         }        
+    }
+
+    public static function match(string $route)
+    {
+        foreach (self::$routes as $registeredRoute) {
+            if ($route === $registeredRoute['route'] && is_callable($registeredRoute['fn'])) {
+                return call_user_func($registeredRoute['fn']);
+            }
+
+            if ($route === $registeredRoute['route']) {
+                $controller = new $registeredRoute['controller']();
+                if (method_exists($controller, $registeredRoute['fn'])) {
+                    return call_user_func([$controller, $registeredRoute['fn']]);
+                }
+            }
+        }
+    }
+
+    public static function get(string $route, array $params)
+    {
+        self::registerRoute('GET', $route, $params);
+    }
+
+    public static function post(string $route, array $params)
+    {
+        self::registerRoute('POST', $route, $params);
+    }
+
+    private static function registerRoute(string $method, string $route, array $params)
+    {
+        self::$routes[] = [
+            'http_method' => $method,
+            'route' => $route,
+            'controller' => $params[0],
+            'fn' => $params[1]
+        ];
     }
 
     public function redirect404(): void
