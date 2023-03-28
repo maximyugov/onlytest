@@ -5,8 +5,9 @@ namespace Onlytest\Services;
 class Session
 {
     private array $session = [
-        'auth' => false,
-        'old' => [],
+        'userIsAuthenticated' => false,
+        'oldInputValues' => [],
+        'flashMessage' => ''
     ];
 
     public function __construct()
@@ -16,29 +17,29 @@ class Session
 
     public function userLoggedIn(): bool
     {
-        return $this->session['auth'] = true;
+        return $this->session['userIsAuthenticated'] = true;
     }
 
     public function userLoggedOut(): bool
     {
-        $this->session['auth'] = false;
+        $this->session['userIsAuthenticated'] = false;
         return true;
     }
 
     public function old(string $key)
     {
-        if (!array_key_exists($key, $this->session['old'])) {
+        if (!array_key_exists($key, $this->session['oldInputValues'])) {
             return null;
         }
-        $value = $this->session['old'][$key];
-        unset($this->session['old'][$key]);
+        $value = $this->session['oldInputValues'][$key];
+        unset($this->session['oldInputValues'][$key]);
 
         return $value;
     }
 
     public function setKey(string $key, string $value): bool
     {
-        $this->session['old'][$key] = $value;
+        $this->session['oldInputValues'][$key] = $value;
         return true;
     }
 }
