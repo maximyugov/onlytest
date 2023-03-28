@@ -7,9 +7,8 @@ use Onlytest\Router;
 
 Router::get('/', [UserController::class, 'index']);
 
-Router::post('/register', [UserController::class, 'register']);
-Router::post('/create', [UserController::class, 'create']);
-Router::post('/login', [UserController::class, 'login']);
-Router::post('/logout', [UserController::class, 'logout']);
-
-Router::post('/verify', [UserController::class, 'verify']);
+Router::get('/register', [UserController::class, 'registerForm']);
+Router::post('/register', [UserController::class, 'createUser']);
+Router::get('/login', [UserController::class, 'loginForm']);
+Router::post('/login', [UserController::class, 'loginUser']);
+Router::post('/logout', [UserController::class, 'logoutUser']);
