@@ -1,6 +1,6 @@
 <?php
 
-namespace Onlytest;
+namespace Onlytest\Services;
 
 /*class Auth
 {
