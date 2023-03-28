@@ -45,7 +45,13 @@ class Auth
     {
         return session()->userLoggedOut($this->user);
     }
-    
+
+    /**
+     * Проверка правильности введенной пары логин-пароль
+     *
+     * @param User $user
+     * @return bool
+     */
     private function userVerified(User $user): bool
     {
         $db = DB::getInstance();
