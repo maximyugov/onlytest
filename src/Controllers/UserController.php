@@ -2,6 +2,7 @@
 
 namespace Onlytest\Controllers;
 
+/*
 class UserController extends Controller
 {
     public function index(): void
@@ -94,5 +95,33 @@ class UserController extends Controller
     public function test()
     {
         return 'test';
+    }
+}
+*/
+
+use Onlytest\Auth;
+
+/**
+ * Новая версия
+ */
+
+class UserController extends Controller
+{
+    public function login()
+    {
+        $auth = new Auth(session()->getUser());
+        $auth->login();
+
+        return view('dashboard', [
+            'user' => session()->getUser()
+        ]);
+    }
+
+    public function logout()
+    {
+        $auth = new Auth(session()->getUser());
+        $auth->logout();
+
+        return view('login');
     }
 }

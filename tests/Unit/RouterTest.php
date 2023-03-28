@@ -6,15 +6,6 @@ use PHPUnit\Framework\TestCase;
 
 class RouterTest extends TestCase
 {
-    /**
-     * @doesNotPerformAssertions 
-     */
-    public function del_test_router()
-    {
-        $router = new Router();
-        $router->matchView('/test');
-    }
-
     public function test_add_get_route()
     {
         Router::get('/route', [UserController::class, function() {
@@ -47,13 +38,6 @@ class RouterTest extends TestCase
         $this->assertEquals('Onlytest\Controllers\UserController', Router::$routes[1]['controller']);
 
         $this->assertEquals('route', Router::match('/route'));
-    }
-
-    public function test_controller_method_executed()
-    {
-        Router::get('/test', [UserController::class, 'test']);
-
-        $this->assertEquals('test', Router::match('/test'));
     }
 
     public function test_not_found()
